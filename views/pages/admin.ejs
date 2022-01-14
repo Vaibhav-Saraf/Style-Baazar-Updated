@@ -67,7 +67,7 @@
     </head>
     <script>
         async function downloadProductsData(){
-        axios.get('http://143.244.142.130:1337/database').then(function (response) {
+        await axios.get('http://143.244.142.130:1337/database').then(function (response) {
         var data = response.data;
         console.log("downloadedJson")
             const workSheet = XLSX.utils.json_to_sheet(data);
@@ -80,15 +80,14 @@
     </script>
     <script>
         async function downloadOfferData(){
-        axios.get('http://143.244.142.130:1337/getOffer').then(function (response) {
-        var data = response.data;
-        console.log("downloadedJson")
+            var response = await axios.get('http://143.244.142.130:1337/getOffer') 
+            var data = response.data;
+            console.log(data)
             const workSheet = XLSX.utils.json_to_sheet(data);
             filename='OfferDB.xlsx';
             var wb = XLSX.utils.book_new();
             XLSX.utils.book_append_sheet(wb, workSheet, "People");
             XLSX.writeFile(wb,filename);
-        })
         };
     </script>
 
@@ -125,10 +124,8 @@
                 
                 </form>
 
-             <!-- <form>
                 <button class="print-preview-button2" onClick="downloadOfferData()"style="margin-left: 105px;">Get Offer Data</button><br>
-                <button class="print-preview-button2" onClick="downloadProductsData()"style="margin-left: 105px;">Get Product Data</button>
-             </form>    -->
+                <button class="print-preview-button2" onClick="downloadProductsData()"style="margin-left: 105px;">Get Product Data</button> 
                 
         </div>
 </html>
