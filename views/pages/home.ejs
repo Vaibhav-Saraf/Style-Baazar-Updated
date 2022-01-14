@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Store</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js" crossorigin="anonymous"></script>
+    <style type="text/css">.left-div {
+    display: inline-block;
+    height: 945px;
+    width: 920px;
+    position: absolute;
+}
+.left-div {
+    display: inline-block;
+    height: 945px;
+    width: 920px;
+    position: absolute;
+}
+.right-div {
+    display: inline-block;
+    height: 945px;
+    width: 800px;
+    position: absolute;
+    left: 50%;
+    text-align: center;
+}
+.left-down {
+    color: green;
+    display: inline-block;
+    border: solid black 1px;
+    height: 30px;
+    width: 130px;
+    margin-left: 30px;
+    font-size: x-large;
+    text-align: center;
+}
+.left-down-text {
+    color: black;
+    font-size: x-large;
+}
+.ftp-select-div {
+    display: inline-block;
+    margin-left: 40px;
+    font-size: 20px;
+}
+.print-options-select {
+    display: inline-block;
+    font-size: 20px;
+    margin-left: 10px;
+}
+.paper-options-select {
+    display: inline-block;
+    font-size: 25px;
+    margin-left: 10px;
+}
+.image {
+    position: absolute;
+    top: 7%;
+    left: 40%;
+}
+.big-heading {
+    font-size: 50px;
+    font-family: serif;
+    text-align: center;
+}
+.small-heading {
+    font-size: 20px;
+    font-family: serif;
+    text-align: center;
+}
+.dropdowns {
+    display: inline-block;
+    height: 200px;
+    width: 500px;
+    margin-top: 10px;
+    /* background-color: red; */
+}
+.dropdown-label {
+    font-size: 30px;
+}
+.dropdown {
+    height: 40px;
+    width: 250px;
+    margin-left: 20px;
+    margin-top: 15px;
+    font-size: 20px;
+}
+.refresh-button {
+    height: 150px; 
+    width: 150px;
+    position: absolute;
+    top: 30%;
+    left: 85%;
+    font-size: 25px;
+}
+.print-preview-button {
+    height: 50px; 
+    width: 250px;
+    position: absolute;
+    top: 90%;
+    left: 48%;
+    font-size: 25px;
+}
+.right-div-top {
+    text-align: center;
+    margin-top: 30px;
+}
+.tab-content-extra {
+    display: block;
+    background-color: white;
+    width: 800px;
+    height: 200px;
+}
+.preview-image {
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    height: 710px;
+    width: 500px;
+    object-fit: contain;
+}
+
+.range-ip {
+    height: 40px;
+    width: 70px;
+    margin-left: 30px;
+    font-size: 20px;
+}
+
+</style>
+</head>
+
+<script>
+    function divisionFinder(){
+    index=0;
+    axios.get('http://143.244.142.130/division').then(function (response) {
+    var data = response.data;
+    var select = document.getElementById("dd1");
+    console.log("imhere")
+    var length = select.options.length;
+    for (i = length-1; i > 0; i--) {
+    select.options[i] = null;
+    }
+    for(var i = 0; i < data.length; i++) {
+    var opt = data[i];
+    var el = document.createElement("option");
+    el.textContent = opt;
+    el.value = opt;
+    select.appendChild(el);
+    }
+  })
+  .catch(function (error) {
+  })
+    };
+</script>
+<script>
+    function sectionFinder(){
+    var q=document.getElementById('dd1');
+    var op=q.options[q.selectedIndex].text;
+    index=0;
+    axios.post('http://143.244.142.130/section', {
+    division: op,
+  }).then(function (response) {
+    var data = response.data;
+    var select = document.getElementById("dd2");
+    console.log("imhere")
+    var length = select.options.length;
+    for (i = length-1; i > 0; i--) {
+    select.options[i] = null;
+    }
+    for(var i = 0; i < data.length; i++) {
+    var opt = data[i];
+    var el = document.createElement("option");
+    el.textContent = opt;
+    el.value = opt;
+    select.appendChild(el);
+    }
+    offertypeFinder();
+  })
+  .catch(function (error) {
+  })
+    };
+</script>
+<script>
+    function departmentFinder(){
+    var q=document.getElementById('cat1');
+    var op=q.options[q.selectedIndex].text;
+    var q1=document.getElementById('dd2');
+    var op1=q1.options[q1.selectedIndex].text;
+    var q2=document.getElementById('dd1');
+    var op2=q2.options[q2.selectedIndex].text;
+    index=0;
+    axios.post('http://143.244.142.130/department', {
+        division: op2,
+        section: op1,
+        category: op,
+  }).then(function (response) {
+    var data = response.data;
+    var select = document.getElementById("dd3");
+    console.log("imhere")
+    var length = select.options.length;
+    for (i = length-1; i > 0; i--) {
+    select.options[i] = null;
+    }
+    for(var i = 0; i < data.length; i++) {
+    var opt = data[i];
+    var el = document.createElement("option");
+    el.textContent = opt;
+    el.value = opt;
+    select.appendChild(el);
+    }
+    
+  })
+  .catch(function (error) {
+  })
+};
+</script>
+<script>
+    function signageFinder(){
+    var q1=document.getElementById('dd2');
+    var q2=document.getElementById('dd3');
+    var op1=q1.options[q1.selectedIndex].text;
+    var op2=q2.options[q2.selectedIndex].text;
+    index=0;
+    axios.post('http://143.244.142.130/signage', {
+    section: op1,
+    department: op2,
+  }).then(function (response) {
+    var data = response.data;
+    var select = document.getElementById("dd4");
+    console.log("imhere")
+    var length = select.options.length;
+    for (i = length-1; i > 0; i--) {
+    select.options[i] = null;
+    }
+    for(var i = 0; i < data.length; i++) {
+    var opt = data[i];
+    var el = document.createElement("option");
+    el.textContent = opt;
+    el.value = opt;
+    select.appendChild(el);
+    }
+    
+  })
+  .catch(function (error) {
+  })
+};
+</script>
+<!-- <script type="text/javascript">
+    async function imageFinder() {
+        console.log("here");
+    var q1=document.getElementById('dd2');
+    var q2=document.getElementById('dd3');
+    var q3=document.getElementById('dd4');
+    var q4=document.getElementById('dd5');
+    var op1=q1.options[q1.selectedIndex].text;
+    var op2=q2.options[q2.selectedIndex].text;
+    var op3=q3.options[q3.selectedIndex].text;
+    var op4=q4.options[q4.selectedIndex].text;
+    console.log("here2");
+    await axios.post('http://143.244.142.130/image', {
+    section: op1,
+    department: op2,
+    signage:op3,
+    size:op4,
+  }).then(function (response) {
+    console.log("here3");
+    var data = response;
+    console.log(data);
+    var x = document.getElementById('preview-image');
+    var y = document.getElementById('preview-image-a');
+    x.setAttribute('src',data);
+    y.setAttribute('href',data);
+  })
+  .catch(function (error) {
+    console.log(error,);
+  done();
+  })
+};
+        
+</script> -->
+
+<script type="text/javascript">
+    async function brandFinder() {
+        console.log("here");
+    var q2=document.getElementById('dd3');
+    var op2=q2.options[q2.selectedIndex].text;
+    var q1=document.getElementById('dd2');
+    var op1=q1.options[q1.selectedIndex].text;
+    var q3=document.getElementById('dd1');
+    var op3=q3.options[q3.selectedIndex].text;
+    console.log("here2");
+    await axios.post('http://143.244.142.130/getbrand', {
+    division:op3,
+    department: op2,
+    section:op1,
+  }).then(function (response) {
+    var data = response.data;
+    var select = document.getElementById("dd4");
+    console.log("imhere")
+    var length = select.options.length;
+    for (i = length-1; i > 0; i--) {
+    select.options[i] = null;
+    }
+    for(var i = 0; i < data.length; i++) {
+    var opt = data[i];
+    var el = document.createElement("option");
+    el.textContent = opt;
+    el.value = opt;
+    select.appendChild(el);
+    }
+    
+  })
+  .catch(function (error) {
+    console.log(error,);
+  done();
+  })
+};
+        
+</script>
+
+<script>
+    async function offertypeFinder() {
+    await axios.post('http://143.244.142.130/offertype', {
+    department: "",
+  }).then(function (response) {
+    var data = response.data;
+    var select = document.getElementById("dd5");
+    console.log("imhere")
+    var length = select.options.length;
+    for (i = length-1; i > 0; i--) {
+    select.options[i] = null;
+    }
+    for(var i = 0; i < data.length; i++) {
+    var opt = data[i];
+    var el = document.createElement("option");
+    el.textContent = opt;
+    el.value = opt;
+    select.appendChild(el);
+    }
+    
+  })
+  .catch(function (error) {
+  })
+    };
+</script>
+
+<script>
+    async function barcodeFinder() {
+    var q3=document.getElementById('dd3');
+    var op3=q3.options[q3.selectedIndex].text;
+    index=0;
+    var q1=document.getElementById('dd1');
+    var op1=q1.options[q1.selectedIndex].text;
+    var q2=document.getElementById('dd2');
+    var op2=q2.options[q2.selectedIndex].text;
+    var q4=document.getElementById('dd4');
+    var op4=q4.options[q4.selectedIndex].text;
+    await axios.post('http://143.244.142.130/barcode', {
+    department: op3,
+    division:op1,
+    section:op2,
+    brand:op4,
+  }).then(function (response) {
+    var data = response.data;
+    var select = document.getElementById("dd8");
+    console.log("imhere")
+    var length = select.options.length;
+    for (i = length-1; i > 0; i--) {
+    select.options[i] = null;
+    }
+    for(var i = 0; i < data.length; i++) {
+    var opt = data[i];
+    var el = document.createElement("option");
+    el.textContent = opt;
+    el.value = opt;
+    select.appendChild(el);
+    }
+    
+  })
+  .catch(function (error) {
+  })
+    };
+</script>
+<script>
+    function categoryFinder(){
+    var q=document.getElementById('dd2');
+    var op=q.options[q.selectedIndex].text;
+    index=0;
+    axios.post('http://143.244.142.130/category', {
+    section: op,
+  }).then(function (response) {
+    var data = response.data;
+    var select = document.getElementById("cat1");
+    console.log("imhere")
+    var length = select.options.length;
+    for (i = length-1; i > 0; i--) {
+    select.options[i] = null;
+    }
+    for(var i = 0; i < data.length; i++) {
+    var opt = data[i];
+    var el = document.createElement("option");
+    el.textContent = opt;
+    el.value = opt;
+    select.appendChild(el);
+    }
+    
+  })
+  .catch(function (error) {
+  })
+};
+</script>
+
+<script>
+    function offerdetailsFinder(){
+    var q=document.getElementById('dd5');
+    var op=q.options[q.selectedIndex].text;
+    index=0;
+    axios.post('http://143.244.142.130/offerdetails', {
+    offertype: op,
+  }).then(function (response) {
+    var data = response.data;
+    var select = document.getElementById("dd6");
+    console.log("imhere")
+    var length = select.options.length;
+    for (i = length-1; i > 0; i--) {
+    select.options[i] = null;
+    }
+    for(var i = 0; i < data.length; i++) {
+    var opt = data[i];
+    var el = document.createElement("option");
+    el.textContent = opt;
+    el.value = opt;
+    select.appendChild(el);
+    }
+    
+  })
+  .catch(function (error) {
+  })
+};
+</script>
+
+<script>
+//  async function imageFinder() {
+//      console.log("here");
+//  var q1=document.getElementById('dd1');
+//  var q2=document.getElementById('dd3');
+//  var q3=document.getElementById('dd4');
+//  var q4=document.getElementById('mrp');
+//  var q5=document.getElementById('range1');
+//  var q6=document.getElementById('range2');
+//  var q7=document.getElementById('dd5');
+//  var q8=document.getElementById('dd6');
+//  var q9=document.getElementById('nmrp');
+//  var op1=q1.options[q1.selectedIndex].text;
+//  var op2=q2.options[q2.selectedIndex].text;
+//  var op3=q3.options[q3.selectedIndex].text;
+//  var op4=q4.value;
+//  var op5=q5.value;
+//  var op6=q6.value;
+//  var op7=q7.options[q7.selectedIndex].text;
+//  var op8=q8.options[q8.selectedIndex].text;
+//  var op9=q9.value;
+//  console.log("here2");
+//  await axios.post('http://http://localhostimage', {
+//     division: op1,
+//  department: op2,
+//  brand:op3,
+//  mrp:op4,
+//  range1:op5,
+//  range2:op6,
+//  ot:op7,
+//  od:op8,
+//  nmrp:op9
+//   }).then(function (response) {
+//  img2();
+//   })
+//   .catch(function (error) {
+//  console.log(error,);
+//   done();
+//   })
+
+//   async function img2(){
+//   var q1=document.getElementById('dd1');
+//  var q2=document.getElementById('dd3');
+//  var q3=document.getElementById('dd4');
+//  var q4=document.getElementById('mrp');
+//  var q5=document.getElementById('range1');
+//  var q6=document.getElementById('range2');
+//  var q7=document.getElementById('dd5');
+//  var q8=document.getElementById('dd6');
+//  var q9=document.getElementById('nmrp');
+//  var op1=q1.options[q1.selectedIndex].text;
+//  var op2=q2.options[q2.selectedIndex].text;
+//  var op3=q3.options[q3.selectedIndex].text;
+//  var op4=q4.value;
+//  var op5=q5.value;
+//  var op6=q6.value;
+//  var op7=q7.options[q7.selectedIndex].text;
+//  var op8=q8.options[q8.selectedIndex].text;
+//  var op9=q9.value;
+//  console.log("here2");
+//  await axios.post('http://http://localhostimage', {
+//     division: op1,
+//  department: op2,
+//  brand:op3,
+//  mrp:op4,
+//  range1:op5,
+//  range2:op6,
+//  ot:op7,
+//  od:op8,
+//  nmrp:op9
+//   }).then(function (response) {
+//  console.log("here3");
+//     var data = response.data;
+//  console.log(data.url);
+//  var x = document.getElementById('preview-image');
+//  var y = document.getElementById('preview-image-a');
+//  x.setAttribute('src',data.url);
+//  y.setAttribute('href',data.url);
+//   })
+//   .catch(function (error) {
+//  console.log(error,);
+//   done();
+//   })
+// }
+// };
+</script>
+
+<script>
+    async function imagFinder() {
+        console.log("here");
+    var q1=document.getElementById('dd1');
+    var q2=document.getElementById('dd3');
+    var q3=document.getElementById('dd4');
+    var q4=document.getElementById('mrp');
+    var q5=document.getElementById('range1');
+    var q6=document.getElementById('range2');
+    var q7=document.getElementById('dd5');
+    var q8=document.getElementById('dd6');
+    var q9=document.getElementById('nmrp');
+    var q10=document.getElementById('dd8');
+    var q11=document.getElementById('dd7');
+    var op1=q1.options[q1.selectedIndex].text;
+    var op2=q2.options[q2.selectedIndex].text;
+    var op3=q3.options[q3.selectedIndex].text;
+    var op4=q4.value;
+    var op5=q5.value;
+    var op6=q6.value;
+    var op7=q7.options[q7.selectedIndex].text;
+    var op8=q8.options[q8.selectedIndex].text;
+    var op9=q9.value;
+    var op10=q10.options[q10.selectedIndex].text;
+    var op11=q11.options[q11.selectedIndex].text;
+
+    localStorage.setItem("division",op1);
+    localStorage.setItem("department",op2);
+    localStorage.setItem("brand",op3);
+    localStorage.setItem("mrp",op4);
+    localStorage.setItem("range1",op5);
+    localStorage.setItem("range2",op6);
+    localStorage.setItem("ot",op7)
+    localStorage.setItem("od",op8)
+    localStorage.setItem("nmrp",op9)
+    localStorage.setItem("barcode",op10)
+    localStorage.setItem("size",op11)
+    window.open('http://143.244.142.130/first', "_blank");
+    // location.reload();
+    }
+</script>
+
+
+
+
+<body style="margin: 0; background-color: #D3D3D3;" onload="divisionFinder()">
+    <div class="right-div">
+        <img src="https://i.ibb.co/SNS2sgd/141-2020-12-03-style-Bazzar-logo.png" class="image"/>
+    </div>
+    <div class="left-div">
+        <div class="big-heading" style="margin-top: 80px;">Offer Signage Print</div>
+        <div class="right-div-top">
+            <form action="first.ejs">
+            <div class="dropdowns">
+                <span class="dropdown-label" style="margin-left: 10px;">Division:</span>
+                <select name="Division" id="dd1" class="dropdown" style="margin-left: 91px;" onChange="sectionFinder()">
+                    <option hidden disabled selected value> -- Select an option -- </option>
+                </select><br>
+                <span class="dropdown-label" style="margin-left: 10px;">Section:</span>
+                <select name="Section" id ="dd2" class="dropdown" style="margin-left: 97px;" onChange="categoryFinder()">
+                    <option hidden disabled selected value> -- Select an option -- </option>
+                </select><br>
+                <span class="dropdown-label" style="margin-left: 10px;">Category:</span>
+                <select name="Category" id="cat1" class="dropdown" style="margin-left: 75px;" onChange="departmentFinder()">
+                    <option hidden disabled selected value> -- Select an option -- </option>
+                </select><br>
+                <span class="dropdown-label" style="margin-left: 10px;">Department:</span>
+                <select name="Department" id="dd3" class="dropdown" style="margin-left: 43px;" onChange="brandFinder()">
+                    <option hidden disabled selected value> -- Select an option -- </option>
+                </select><br>
+                <span class="dropdown-label" style="margin-left: 10px;">Brand:</span>
+                <select name="Brand" id="dd4" class="dropdown" style="margin-left: 120px;" onchange="barcodeFinder()">
+                    <option hidden disabled selected value> -- Select an option -- </option>
+                    <option> </option>
+                </select><br>
+                <span class="dropdown-label" style="margin-left: 10px;">MRP:</span>
+                <input id ="mrp" type="text" name="MRP" class="dropdown" style="margin-left: 135px;"><br>
+                <span class="dropdown-label" style="margin-right: 113px;">Range:</span>
+                <input id ="range1" type="text" name="range1" class="range-ip">
+                <span style="margin-left:20px;font-size: 30px;">-</span>
+                <input id ="range2" type="text" name="range2" class="range-ip"><br>
+                <span class="dropdown-label" style="margin-left: 10px;">New MRP:</span>
+                <input id ="nmrp" type="text" name="MRP" class="dropdown" style="margin-left: 60px;"><br>
+                <span class="dropdown-label" style="margin-left: 10px;">Offer Type:</span>
+                <select id ="dd5" class="dropdown" style="margin-left: 59px;" onChange="offerdetailsFinder()">
+                    <option hidden disabled selected value> -- Select an option -- </option>
+                </select><br>
+                <span class="dropdown-label" style="margin-left: 10px;">Offer Details:</span>
+                <select id = "dd6" class="dropdown" style="margin-left: 30px;">
+                    <option hidden disabled selected value> -- Select an option -- </option>
+                </select><br>
+                <span class="dropdown-label" style="margin-left: 10px;">Barcode:</span>
+                <select id = "dd8" class="dropdown" style="margin-left: 80px;" >
+                    <option hidden disabled selected value> -- Select an option -- </option>
+                </select><br>
+                <span class="dropdown-label" style="margin-left: 10px;">Paper Size:</span>
+                <select id="dd7" class="dropdown" style="margin-left: 48px;">
+                    <option>A4</option>
+                    <option>A5</option>
+                    <option>A6</option>
+                </select>
+            </div>
+            </form>
+        </div>
+        <button class="print-preview-button" onClick="imagFinder()">Print Preview</button>
+    </div>
+</body>
+</html>

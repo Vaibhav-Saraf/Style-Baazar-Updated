@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    body {
+      background: rgb(204, 204, 204);
+    }
+
+    page {
+      background: white;
+      display: block;
+      margin: 0 auto;
+      margin-bottom: 0.5cm;
+      box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
+    }
+
+    page[size="A4"][layout="landscape"] {
+      width: 29.7cm;
+      height: 19cm;
+    }
+
+    @media print {
+
+      body,
+      page {
+        margin: 0;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        -moz-box-shadow:none;
+      }
+
+      html {
+        transform: scale(1);
+        margin: 0;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        -moz-box-shadow:none;
+      }
+    }
+
+    @font-face {
+      font-family: GBlack;
+      src: url(fonts/htmlFonts/Gotham-Black.otf) format('opentype');
+    }
+
+    @font-face {
+      font-family: GUltra;
+      src: url(fonts/htmlFonts/Gotham-Ultra.otf) format('opentype');
+    }
+
+    @font-face {
+      font-family: GBold;
+      src: url(fonts/htmlFonts/Gotham-Bold.otf) format('opentype');
+    }
+
+    @font-face {
+      font-family: Hindi;
+      src: url(fonts/htmlFonts/Hind_Siliguri_SemiBold-Regular.ttf);
+    }
+
+    .div1 {
+      /* page-break-inside: avoid; */
+      width: 1122px;
+      /* height: 99%; */
+      margin: 0px;
+
+      text-align: center;
+      line-height: 60px;
+    }
+
+    .div1n {
+      /* page-break-inside: avoid; */
+      width: 1122px;
+      margin: auto;
+      text-align: center;
+      line-height: 30px;
+    }
+
+    .div2n {
+      /* page-break-inside: avoid; */
+      width: 1122px;
+      margin: auto;
+      line-height: 30px;
+    }
+
+    .div2 {
+      /* page-break-inside: avoid; */
+      width: 1022px;
+      margin: auto;
+      text-align: right;
+      line-height: 10px;
+    }
+
+    .a {
+      font-family: GBlack;
+      font-size: 100px;
+    }
+
+    .b {
+      font-family: GUltra;
+      font-size: 163px;
+    }
+
+    .c {
+      font-family: Hindi;
+      font-size: 110px;
+    }
+
+    .d {
+      font-family: GBold;
+      font-size: 50px;
+    }
+
+    .e {
+      font-family: Hindi;
+      font-size: 40px;
+    }
+
+    .a1 {
+      font-family: GBlack;
+      font-size: 125px;
+    }
+
+    .b1 {
+      font-family: GUltra;
+      font-size: 115px;
+    }
+    .a2{
+      font-family: GBlack;
+      font-size: 125px;
+    }
+
+    .c1 {
+      font-family: Hindi;
+      font-size: 85px;
+    }
+
+    .a3 {
+      font-family: GBold;
+      font-size: 135px;
+    }
+
+    .b3 {
+      font-family: GBold;
+      font-size: 58px;
+    }
+
+    .c3 {
+      font-family: Hindi;
+      font-size: 120px;
+    }
+
+    .d3 {
+      font-family: GBold;
+      font-size: 56px;
+    }
+
+    .e3 {
+      font-family: Hindi;
+      font-size: 45px;
+    }
+
+    .f {
+      font-family: GBold;
+      font-size: 36px;
+    }
+
+    .m {
+      font-family: GBlack;
+      font-size: 88px;
+    }
+
+    .n {
+      font-family: GBlack;
+      font-size:115px;
+    }
+
+    .o {
+      font-family: GBlack;
+      font-size: 80px;
+    }
+
+    .p {
+      font-family: GBlack;
+      font-size: 110px;
+    }
+
+    .q {
+      font-family: Hindi;
+      font-size: 77px;
+    }
+
+    .r {
+      font-family: Hindi;
+      font-size: 81px;
+    }
+
+    .s {
+      font-family: GUltra;
+      font-size: 219px;
+    }
+    .t{
+      font-family: GBold;
+      font-size: 75px;
+    }
+    .u{
+      font-family: GBlack;
+      font-size: 90px;
+    }
+    .v{
+      font-family: GBlack;
+      font-size: 90px;
+    }
+    .v1{
+      font-family: GBlack;
+      font-size: 70px;
+    }
+    .w{
+      font-family: GBlack;
+      font-size: 150px;
+    }
+    .x{
+      font-family: Hindi;
+      font-size: 120px;
+    }
+    .y{
+      font-family: GBlack;
+      font-size: 110px;
+    }
+    .z{
+      font-family: Hindi;
+      font-size: 85px;
+    }
+
+    .strikethrough {
+      position: relative;
+      font-family: GBold;
+      font-size: 58px;
+    }
+
+    .strikethrough:before {
+      position: absolute;
+      content: "";
+      left: 0;
+      top: 50%;
+      right: 0;
+      border-top: 6px solid;
+      border-color: inherit;
+
+      -webkit-transform: rotate(-5deg);
+      -moz-transform: rotate(-5deg);
+      -ms-transform: rotate(-5deg);
+      -o-transform: rotate(-5deg);
+      transform: rotate(-17deg);
+    }
+
+    .diva6 {
+      /* page-break-inside: avoid; */
+      width: 1122px;
+      margin: auto;
+      text-align: center;
+      margin-top: -5px;
+      margin-bottom: -10px;
+      margin-left:150px;
+      line-height: 60px;
+      transform: scale(0.5);
+      transform-origin: 0 0;
+    }
+
+    .diva62 {
+      /* page-break-inside: avoid; */
+      width: 1122px;
+      margin: auto;
+      margin-left:150px;
+      text-align: right;
+      line-height: 10px;
+      transform: scale(0.5);
+      transform-origin: 0 0;
+      margin-top: -370px;
+    }
+  </style>
+</head>
+
+<body onload="hello()">
+  <script>
+    function hello() {
+      if (localStorage.getItem("size") === 'A4' || localStorage.getItem("size") === 'A5') {
+        if (localStorage.getItem("division") === "APPARELS") {
+          if (localStorage.getItem("range1") === "") {
+            if (localStorage.getItem("ot") === "% OFF-SINGLE CASE") {
+              var str = '<br><br><br>\
+  <p>\
+    <span class="a">Flat </span>\
+  <span id ="od" class="b"> </span>\
+  <span class="a">&nbsp;Off</span>\
+  </p>\
+    <br><p><span id="department"class="a"></span></p>\
+  <p>\
+  <span class="d">MRP  </span>\
+    <span class="e"><sup> ₹</sup></span>\
+  <span id ="mrp" class="d"></span>\
+  </p>';
+
+              document.getElementById("g").innerHTML = str;
+              document.getElementById("od").innerHTML = localStorage.getItem("od");
+              document.getElementById("department").innerHTML = localStorage.getItem("department");
+              document.getElementById("mrp").innerHTML = localStorage.getItem("mrp");
+            }// % OFF
+            else if (localStorage.getItem("ot") === "POWER PRICING-FLAT PRICE(2 ITEMS)") {
+              console.log("in fn 2")
+              var str = '<br><br>\
+  <p>\
+    <span class="a">Buy </span>\
+  <span id="od1" class="a2"> </span>\
+  <span class="a">&nbsp;@ </span>\
+  <span class="c1"><sup>₹</sup></span>\
+  <span id="od2" class="a2"></span>\
+  </p>\
+  <p>\
+    <span class="m">Buy </span>\
+  <span id ="od3"class="n"></span>\
+  <span class="m">&nbsp;@ </span>\
+  <span class="q"><sup>₹</sup></span>\
+  <span id="od4"class="n"></span>\
+  </p>\
+    <br><p><span id="department"class="t"></span></p>\
+  <p>\
+  <span class="d">MRP  </span>\
+    <span class="e"><sup> ₹</sup></span>\
+  <span id="mrp"class="d"></span>\
+  </p>'
+              document.getElementById("g").innerHTML = str;
+              var data = localStorage.getItem("od").split(";");
+              document.getElementById("od1").innerHTML = data[0];
+              document.getElementById("od2").innerHTML = data[1];
+              document.getElementById("od3").innerHTML = data[2];
+              document.getElementById("od4").innerHTML = data[3];
+              document.getElementById("mrp").innerHTML = localStorage.getItem("mrp");
+              document.getElementById("department").innerHTML = localStorage.getItem("department");
+            }// power pricing 2items
+            else if (localStorage.getItem("ot") === "POWER PRICING-FLAT PRICE(3 ITEMS)") {
+              console.log("in fn 2")
+              var str = '<br><br>\
+  <p>\
+    <span class="a">Buy </span>\
+  <span id="od1" class="a2"> </span>\
+  <span class="a">&nbsp;@ </span>\
+  <span class="c1"><sup>₹</sup></span>\
+  <span id="od2" class="a2"></span>\
+  </p>\
+  <p>\
+    <span class="m">Buy </span>\
+  <span id ="od3"class="n"></span>\
+  <span class="m">&nbsp;@ </span>\
+  <span class="q"><sup>₹</sup></span>\
+  <span id="od4"class="n"></span>\
+  </p>\
+  <p>\
+    <span class="o">Buy </span>\
+  <span id ="od5"class="p"></span>\
+  <span class="o">&nbsp;@ </span>\
+  <span class="r"><sup>₹</sup></span>\
+  <span id="od6"class="p"></span>\
+  </p>\
+    <p><span id="department"class="t"></span></p>\
+  <p>\
+  <span class="d">MRP  </span>\
+    <span class="e"><sup> ₹</sup></span>\
+  <span id="mrp"class="d"></span>\
+  </p>'
+              document.getElementById("g").innerHTML = str;
+              var data = localStorage.getItem("od").split(";");
+              document.getElementById("od1").innerHTML = data[0];
+              document.getElementById("od2").innerHTML = data[1];
+              document.getElementById("od3").innerHTML = data[2];
+              document.getElementById("od4").innerHTML = data[3];
+              document.getElementById("od5").innerHTML = data[4];
+              document.getElementById("od6").innerHTML = data[5];
+              document.getElementById("mrp").innerHTML = localStorage.getItem("mrp");
+              document.getElementById("department").innerHTML = localStorage.getItem("department");
+            }// power pricing 3items
+            else if (localStorage.getItem("ot") === "POWER PRICING-% OFF(2 ITEMS)") {
+              var str = '<br><br>\
+  <p>\
+    <span class="a">Buy </span>\
+  <span id="od1"class="a2"> </span>\
+  <span class="a">&nbsp;Flat </span>\
+  <span id="od2"class="a2"></span>\
+  <span class="a">&nbsp;Off</span>\
+  </p>\
+  <p>\
+    <span class="m">Buy </span>\
+  <span id="od3"class="n"> </span>\
+  <span class="m">&nbsp;Flat </span>\
+  <span id="od4"class="n"></span>\
+  <span class="m">&nbsp;Off</span>\
+  </p>\
+    <br><p><span id="department"class="t"></span></p>\
+  <p>\
+  <span class="d">MRP  </span>\
+    <span class="e"><sup> ₹</sup></span>\
+  <span id="mrp"class="d"></span\
+  </p>'
+              document.getElementById("g").innerHTML = str;
+              var data = localStorage.getItem("od").split(";");
+              document.getElementById("od1").innerHTML = data[0];
+              document.getElementById("od2").innerHTML = data[1];
+              document.getElementById("od3").innerHTML = data[2];
+              document.getElementById("od4").innerHTML = data[3];
+              document.getElementById("mrp").innerHTML = localStorage.getItem("mrp");
+              document.getElementById("department").innerHTML = localStorage.getItem("department");
+
+
+
+            }// %off 2items
+            else if (localStorage.getItem("ot") === "POWER PRICING-% OFF(3 ITEMS)") {
+              var str = '<br><br>\
+  <p>\
+    <span class="a">Buy </span>\
+  <span id="od1"class="a2"> </span>\
+  <span class="a">&nbsp;Flat </span>\
+  <span id="od2"class="a2"></span>\
+  <span class="a">&nbsp;Off</span>\
+  </p>\
+  <p>\
+    <span class="m">Buy </span>\
+  <span id="od3"class="n"> </span>\
+  <span class="m">&nbsp;Flat </span>\
+  <span id="od4"class="n"></span>\
+  <span class="m">&nbsp;Off</span>\
+  </p>\
+  <p>\
+    <span class="o">Buy </span>\
+  <span id="od5"class="p"> </span>\
+  <span class="o">&nbsp;Flat </span>\
+  <span id="od6"class="p"></span>\
+  <span class="o">&nbsp; Off</span>\
+  </p>\
+    <p><span id="department"class="t"></span></p>\
+  <p>\
+  <span class="d">MRP  </span>\
+    <span class="e"><sup> ₹</sup></span>\
+  <span id="mrp"class="d"></span\
+  </p>'
+              document.getElementById("g").innerHTML = str;
+              var data = localStorage.getItem("od").split(";");
+              document.getElementById("od1").innerHTML = data[0];
+              document.getElementById("od2").innerHTML = data[1];
+              document.getElementById("od3").innerHTML = data[2];
+              document.getElementById("od4").innerHTML = data[3];
+              document.getElementById("od5").innerHTML = data[4];
+              document.getElementById("od6").innerHTML = data[5];
+              document.getElementById("mrp").innerHTML = localStorage.getItem("mrp");
+              document.getElementById("department").innerHTML = localStorage.getItem("department");
+
+
+
+            }// 3item %off
+            else if (localStorage.getItem("ot") === "FLAT PRICE") {
+              var str = '<br><br><br>\
+  <p>\
+    <span class="a">Flat </span>\
+  <span class="c"><sup>₹</sup></span>\
+  <span id="od"class="b"></span>\
+  </p>\
+    <br><p><span id="department"class="a"></span></p>\
+  <p>\
+  <span class="d">MRP  </span>\
+    <span class="e"><sup> ₹</sup></span>\
+  <span id="mrp" class="d"></span\
+  </p>'
+
+              document.getElementById("g").innerHTML = str;
+              document.getElementById("od").innerHTML = localStorage.getItem("od");
+              document.getElementById("department").innerHTML = localStorage.getItem("department");
+              document.getElementById("mrp").innerHTML = localStorage.getItem("mrp");
+
+
+            }//flat price
+
+            else if (localStorage.getItem("ot") === "LIQUIDATION PRICE") {
+              var str = '<br><br><br>\
+  <p>\
+    <span class="a">PICK ANY </span>\
+  </p>\
+    <br><p>\
+    <span class="a">Flat </span>\
+  <span class="c"><sup>₹</sup></span>\
+  <span id="od" class="b"></span>\
+  </p>'
+              document.getElementById("g").innerHTML = str;
+              document.getElementById("od").innerHTML = localStorage.getItem("od");
+            }//liquidation
+            else if (localStorage.getItem("ot") === "MRP ONLY") {
+              var str = '<br><br><br>\
+  <p>\
+    <span id="department"class="u"></span>\
+  </p>\
+    <br><p>\
+    <span class="v">MRP&nbsp;&nbsp;</span>\
+  <span class="x"><sup>₹</sup></span>\
+  <span id="mrp" class="w"></span>\
+  </p>'
+              document.getElementById("g").innerHTML = str;
+              document.getElementById("mrp").innerHTML = localStorage.getItem("mrp");
+              document.getElementById("department").innerHTML = localStorage.getItem("department");
+            }//MRP ONLY
+
+            else if (localStorage.getItem("ot") === "CORE POWER PRICING") {
+              var str = '<br><br><br>\
+  <p>\
+    <span class="a">Buy </span>\
+  <span id="od1"class="b1"> </span>\
+  <span class="a">&nbsp;@ </span>\
+  <span class="c1"><sup>₹</sup></span>\
+  <span id="od2" class="b1"></span>\
+  </p>\
+    <br><p><span id="department"class="a"></span></p>\
+  <p>\
+  <span class="d">MRP  </span>\
+    <span class="e"><sup> ₹</sup></span>\
+  <span id="mrp"class="d"></span>\
+  </p>'
+              document.getElementById("g").innerHTML = str;
+              var data = localStorage.getItem("od").split(";");
+              document.getElementById("od1").innerHTML = data[0];
+              document.getElementById("od2").innerHTML = data[1];
+              document.getElementById("department").innerHTML = localStorage.getItem("department");
+              document.getElementById("mrp").innerHTML = localStorage.getItem("mrp");
+            }//core power pricing
+            else if (localStorage.getItem("ot") === "DEAL(B1G1)") {
+              var str = '<br><br><br>\
+  <p>\
+    <span class="a1">Buy&nbsp;</span>\
+  <span id="od1"class="b"></span>\
+  <span class="b">&nbsp;</span>\
+  <span class="a1">Get&nbsp;</span>\
+  <span id="od2"class="b"></span>\
+  </p>\
+    <br><p><span id="department" class="a"></span></p>\
+  <p>\
+  <span class="d">MRP  </span>\
+    <span class="e"><sup> ₹</sup></span>\
+  <span id="mrp"class="d"></span>\
+  </p>'
+              document.getElementById("g").innerHTML = str;
+              var data = localStorage.getItem("od").split(";");
+              document.getElementById("od1").innerHTML = data[0];
+              document.getElementById("od2").innerHTML = data[1];
+              document.getElementById("department").innerHTML = localStorage.getItem("department");
+              document.getElementById("mrp").innerHTML = localStorage.getItem("mrp");
+
+            }//b1g1
+            else if (localStorage.getItem("ot") === "LIQUIDATION %") {
+              var str = '<br><br><br><br><br><br><p>\
+    <span  style="margin-left:10px;" class="m">Flat</span><br><br><br><br>\
+  <span style="margin-left:10px;" id="od"class="s"></span>\
+  <span class="b">&nbsp;Off</span><br>\
+  <span style="margin-left:650px;"class="f">ON MRP</span>\</p>'
+              document.getElementById("g2").innerHTML = str;
+              document.getElementById("od").innerHTML = localStorage.getItem("od");
+            }
+          }// range == null
+
+
+
+
+
+
+          else {
+            if (localStorage.getItem("ot") === "% OFF-SINGLE CASE") {
+              var str = '<br><br><br>\
+  <p>\
+    <span class="a">Flat&nbsp;</span>\
+  <span id ="od" class="b"></span>\
+  <span class="a">&nbsp;Off</span>\
+  </p>\
+    <br><p><span id="department"class="a"></span></p>\
+  <p>\
+  <span class="d">MRP  </span>\
+  <span class="e"><sup> ₹</sup></span>\
+  <span id="range1" class="d"></span>\
+  <span class="d">-  </span>\
+    <span class="e"><sup> ₹</sup></span>\
+  <span id="range2"class="d"></span>\
+  </p>';
+
+              document.getElementById("g").innerHTML = str;
+              document.getElementById("range1").innerHTML = localStorage.getItem("range1");
+              document.getElementById("range2").innerHTML = localStorage.getItem("range2");
+              document.getElementById("od").innerHTML = localStorage.getItem("od");
+              document.getElementById("department").innerHTML = localStorage.getItem("department");
+
+
+            }// % OFF
+            
+            else if (localStorage.getItem("ot") === "POWER PRICING-FLAT PRICE(2 ITEMS)") {
+              console.log("in fn 2")
+              var str = '<br><br>\
+  <p>\
+    <span class="a">Buy </span>\
+  <span id="od1" class="a2"> </span>\
+  <span class="a">&nbsp;@ </span>\
+  <span class="c1"><sup>₹</sup></span>\
+  <span id="od2" class="a2"></span>\
+  </p>\
+  <p>\
+    <span class="m">Buy </span>\
+  <span id ="od3"class="n"></span>\
+  <span class="m">&nbsp;@ </span>\
+  <span class="q"><sup>₹</sup></span>\
+  <span id="od4"class="n"></span>\
+  </p>\
+    <br><p><span id="department"class="t"></span></p>\
+  <p>\
+  <span class="d">MRP  </span>\
+    <span class="e"><sup> ₹</sup></span>\
+      <span id="range1" class="d"></span>\
+  <span class="d">-  </span>\
+    <span class="e"><sup> ₹</sup></span>\
+  <span id="range2"class="d"></span>\
+  </p>';
+
+              document.getElementById("g").innerHTML = str;
+              document.getElementById("range1").innerHTML = localStorage.getItem("range1");
+              document.getElementById("range2").innerHTML = localStorage.getItem("range2");
+              var data = localStorage.getItem("od").split(";");
+              document.getElementById("od1").innerHTML = data[0];
+              document.getElementById("od2").innerHTML = data[1];
+              document.getElementById("od3").innerHTML = data[2];
+              document.getElementById("od4").innerHTML = data[3];
+              document.getElementById("department").innerHTML = localStorage.getItem("department");
+            }// power pricing 2items
+            else if (localStorage.getItem("ot") === "POWER PRICING-FLAT PRICE(3 ITEMS)") {
+              console.log("in fn 2")
+              var str = '<br><br>\
+  <p>\
+    <span class="a">Buy </span>\
+  <span id="od1" class="a2"> </span>\
+  <span class="a">&nbsp;@ </span>\
+  <span class="c1"><sup>₹</sup></span>\
+  <span id="od2" class="a2"></span>\
+  </p>\
+  <p>\
+    <span class="m">Buy </span>\
+  <span id ="od3"class="n"></span>\
+  <span class="m">&nbsp;@ </span>\
+  <span class="q"><sup>₹</sup></span>\
+  <span id="od4"class="n"></span>\
+  </p>\
+  <p>\
+    <span class="o">Buy </span>\
+  <span id ="od5"class="p"></span>\
+  <span class="o">&nbsp;@ </span>\
+  <span class="r"><sup>₹</sup></span>\
+  <span id="od6"class="p"></span>\
+  </p>\
+    <p><span id="department"class="t"></span></p>\
+  <p>\
+  <span class="d">MRP  </span>\
+    <span class="e"><sup> ₹</sup></span>\
+      <span id="range1" class="d"></span>\
+  <span class="d">-  </span>\
+    <span class="e"><sup> ₹</sup></span>\
+  <span id="range2"class="d"></span>\
+  </p>';
+
+              document.getElementById("g").innerHTML = str;
+              document.getElementById("range1").innerHTML = localStorage.getItem("range1");
+              document.getElementById("range2").innerHTML = localStorage.getItem("range2");
+              var data = localStorage.getItem("od").split(";");
+              document.getElementById("od1").innerHTML = data[0];
+              document.getElementById("od2").innerHTML = data[1];
+              document.getElementById("od3").innerHTML = data[2];
+              document.getElementById("od4").innerHTML = data[3];
+              document.getElementById("od5").innerHTML = data[4];
+              document.getElementById("od6").innerHTML = data[5];
+              document.getElementById("department").innerHTML = localStorage.getItem("department");
+            }// power pricing 3items
+            else if (localStorage.getItem("ot") === "POWER PRICING-% OFF(2 ITEMS)") {
+              var str = '<br><br>\
+  <p>\
+    <span class="a">Buy </span>\
+  <span id="od1"class="a2"> </span>\
+  <span class="a">&nbsp;Flat </span>\
+  <span id="od2"class="a2"></span>\
+  <span class="a">&nbsp;Off</span>\
+  </p>\
+  <p>\
+    <br><span class="m">Buy </span>\
+  <span id="od3"class="n"> </span>\
+  <span class="m">&nbsp;Flat </span>\
+  <span id="od4"class="n"></span>\
+  <span class="m">&nbsp;Off</span>\
+  </p>\
+    <br><p><span id="department"class="t"></span></p>\
+  <p>\
+  <span class="d">MRP  </span>\
+    <span class="e"><sup> ₹</sup></span>\
+      <span id="range1" class="d"></span>\
+  <span class="d">-  </span>\
+    <span class="e"><sup> ₹</sup></span>\
+  <span id="range2"class="d"></span>\
+  </p>';
+
+              document.getElementById("g").innerHTML = str;
+              document.getElementById("range1").innerHTML = localStorage.getItem("range1");
+              document.getElementById("range2").innerHTML = localStorage.getItem("range2");
+              var data = localStorage.getItem("od").split(";");
+              document.getElementById("od1").innerHTML = data[0];
+              document.getElementById("od2").innerHTML = data[1];
+              document.getElementById("od3").innerHTML = data[2];
+              document.getElementById("od4").innerHTML = data[3];
+              document.getElementById("department").innerHTML = localStorage.getItem("department");
+
+
+
+            }// %off 2items
+            else if (localStorage.getItem("ot") === "POWER PRICING-% OFF(3 ITEMS)") {
+              var str = '<br><br>\
+  <p>\
+    <span class="a">Buy&nbsp;</span>\
+  <span id="od1"class="a2"> </span>\
+  <span class="a">&nbsp;Flat&nbsp;</span>\
+  <span id="od2"class="a2"></span>\
+  <span class="a">&nbsp;Off</span>\
+  </p>\
+  <p>\
+    <span class="m">Buy&nbsp;</span>\
+  <span id="od3"class="n"> </span>\
+  <span class="m">&nbsp;Flat&nbsp;</span>\
+  <span id="od4"class="n"></span>\
+  <span class="m">&nbsp;Off</span>\
+  </p>\
+  <p>\
+    <span class="o">Buy&nbsp;</span>\
+  <span id="od5"class="p"> </span>\
+  <span class="o">&nbsp;Flat&nbsp;</span>\
+  <span id="od6"class="p"></span>\
+  <span class="o">&nbsp;Off</span>\
+  </p>\
+    <p><span id="department"class="t"></span></p>\
+  <p>\
+  <span class="d">MRP  </span>\
+    <span class="e"><sup> ₹</sup></span>\
+      <span id="range1" class="d"></span>\
+  <span class="d">-  </span>\
+    <span class="e"><sup> ₹</sup></span>\
+  <span id="range2"class="d"></span>\
+  </p>';
+
+              document.getElementById("g").innerHTML = str;
+              document.getElementById("range1").innerHTML = localStorage.getItem("range1");
+              document.getElementById("range2").innerHTML = localStorage.getItem("range2");
+              var data = localStorage.getItem("od").split(";");
+              document.getElementById("od1").innerHTML = data[0];
+              document.getElementById("od2").innerHTML = data[1];
+              document.getElementById("od3").innerHTML = data[2];
+              document.getElementById("od4").innerHTML = data[3];
+              document.getElementById("od5").innerHTML = data[4];
+              document.getElementById("od6").innerHTML = data[5];
+
+              document.getElementById("department").innerHTML = localStorage.getItem("department");
+
+
+
+            }// 3item %off
+            else if (localStorage.getItem("ot") === "RANGE ONLY") {
+              var str = '<br><br><br>\
+  <p>\
+    <span id="department"class="u"></span>\
+  </p>\
+    <br><p>\
+    <span class="v1">MRP&nbsp;&nbsp;</span>\
+    <span class="z"><sup> ₹</sup></span>\
+      <span id="range1" class="y"></span>\
+  <span class="y">&nbsp;-  </span>\
+    <span class="z"><sup> ₹</sup></span>\
+  <span id="range2"class="y"></span>\
+  </p>'
+              document.getElementById("g").innerHTML = str;
+              document.getElementById("range1").innerHTML = localStorage.getItem("range1");
+              document.getElementById("range2").innerHTML = localStorage.getItem("range2");
+              document.getElementById("department").innerHTML = localStorage.getItem("department");
+            }//RANGE ONLY
+            else if (localStorage.getItem("ot") === "FLAT PRICE") {
+              var str = '<br><br><br>\
+  <p>\
+    <span class="a">Flat </span>\
+  <span class="c"><sup>₹</sup></span>\
+  <span id="od"class="b"></span>\
+  </p>\
+    <br><p><span id="department"class="a"></span></p>\
+  <p>\
+  <span class="d">MRP  </span>\
+    <span class="e"><sup> ₹</sup></span>\
+      <span id="range1" class="d"></span>\
+  <span class="d">-  </span>\
+    <span class="e"><sup> ₹</sup></span>\
+  <span id="range2"class="d"></span>\
+  </p>';
+
+              document.getElementById("g").innerHTML = str;
+              document.getElementById("range1").innerHTML = localStorage.getItem("range1");
+              document.getElementById("range2").innerHTML = localStorage.getItem("range2");
+              document.getElementById("od").innerHTML = localStorage.getItem("od");
+              document.getElementById("department").innerHTML = localStorage.getItem("department");
+
+
+            }//flat price
+
+            else if (localStorage.getItem("ot") === "LIQUIDATION PRICE") {
+              var str = '<br><br><br>\
+  <p>\
+    <span class="a">PICK ANY </span>\
+  </p>\
+    <br><p>\
+    <span class="a">Flat </span>\
+  <span class="c"><sup>₹</sup></span>\
+  <span id="od" class="b"></span>\
+  </p>'
+              document.getElementById("g").innerHTML = str;
+              document.getElementById("od").innerHTML = localStorage.getItem("od");
+            }//liquidation
+
+            else if (localStorage.getItem("ot") === "CORE POWER PRICING") {
+              var str = '<br><br><br>\
+  <p>\
+    <span class="a">Buy&nbsp;</span>\
+  <span id="od1"class="b1"></span>\
+  <span class="a">&nbsp;@ </span>\
+  <span class="c1"><sup>₹</sup></span>\
+  <span id="od2" class="b1"></span>\
+  </p>\
+    <br><p><span id="department"class="a"></span></p>\
+  <p>\
+  <span class="d">MRP  </span>\
+    <span class="e"><sup> ₹</sup></span>\
+      <span id="range1" class="d"></span>\
+  <span class="d">-  </span>\
+    <span class="e"><sup> ₹</sup></span>\
+  <span id="range2"class="d"></span>\
+  </p>';
+
+              document.getElementById("g").innerHTML = str;
+              document.getElementById("range1").innerHTML = localStorage.getItem("range1");
+              document.getElementById("range2").innerHTML = localStorage.getItem("range2");
+              var data = localStorage.getItem("od").split(";");
+              document.getElementById("od1").innerHTML = data[0];
+              document.getElementById("od2").innerHTML = data[1];
+              document.getElementById("department").innerHTML = localStorage.getItem("department");
+            }//core power pricing
+            else if (localStorage.getItem("ot") === "DEAL(B1G1)") {
+              var str = '<br><br><br>\
+  <p>\
+    <span class="a1">Buy&nbsp;</span>\
+  <span id="od1"class="b"> </span>\
+  <span class="a1">&nbsp;Get&nbsp;</span>\
+  <span id="od2"class="b"></span>\
+  </p>\
+    <br><p><span id="department" class="a"></span></p>\
+  <p>\
+  <span class="d">MRP  </span>\
+    <span class="e"><sup> ₹</sup></span>\
+      <span id="range1" class="d"></span>\
+  <span class="d">-  </span>\
+    <span class="e"><sup> ₹</sup></span>\
+  <span id="range2"class="d"></span>\
+  </p>';
+
+              document.getElementById("g").innerHTML = str;
+              document.getElementById("range1").innerHTML = localStorage.getItem("range1");
+              document.getElementById("range2").innerHTML = localStorage.getItem("range2");
+              var data = localStorage.getItem("od").split(";");
+              document.getElementById("od1").innerHTML = data[0];
+              document.getElementById("od2").innerHTML = data[1];
+              document.getElementById("department").innerHTML = localStorage.getItem("department");
+
+            }//b1g1
+
+          }//range not null
+        }// app 
+        else {
+          if (localStorage.getItem("ot") === "DEAL(B1G1)") {
+            var str = '<br><br><br><br>\
+  <p><span id="department"class="d3"> </span></p>\
+  <p><span id="brand"class="d3"></span></p>\
+  <br>\
+  <p>\
+  <br><span class="a3">BUY&nbsp;</span>\
+  <span id="od1" class="a3"></span>\
+  <span class="a3">&nbsp;GET&nbsp;</span>\
+  <span id="od2" class="a3"></span>\
+  </p>\
+    <br>\
+  <p>\
+  <span class="b3">MRP: </span>\
+    <span class="e3"><sup> ₹</sup></span>\
+  <span id="mrp" class="b3"></span>\
+  </p><br><br>'
+            document.getElementById("g1n").innerHTML = str;
+
+            var str2 = '<p><span id="barcode" class="f"></span></p>'
+
+
+            document.getElementById("g1").innerHTML = str2;
+
+
+            var data = localStorage.getItem("od").split(";");
+            document.getElementById("od1").innerHTML = data[0];
+            document.getElementById("od2").innerHTML = data[1];
+            document.getElementById("mrp").innerHTML = localStorage.getItem("mrp");
+            document.getElementById("department").innerHTML = localStorage.getItem("department");
+            document.getElementById("brand").innerHTML = localStorage.getItem("brand");
+            document.getElementById("barcode").innerHTML = localStorage.getItem("barcode");
+
+          }
+          if (localStorage.getItem("ot") === "NEW MRP") {
+            var str = '<br><br><br><br>\
+  <p><span id="department"class="d3"> </span></p>\
+  <p><span id="brand"class="d3"></span></p>\
+  <br>\
+  <p>\
+    <br><span class="c"><sup> ₹</sup></span>\
+  <span id="nmrp" class="a3"></span>\
+  </p>\
+    <br>\
+  <p>\
+  <span class="b3">MRP: </span>\
+    <span class="e3"><sup> ₹</sup></span>\
+  <span id="mrp" class="strikethrough"></span>\
+  <br><br></p>'
+            document.getElementById("g1n").innerHTML = str;
+
+            var str2 = '<p><span id="barcode" class="f"></span></p>'
+
+
+            document.getElementById("g1").innerHTML = str2;
+
+
+
+            document.getElementById("mrp").innerHTML = localStorage.getItem("mrp");
+            document.getElementById("nmrp").innerHTML = localStorage.getItem("nmrp");
+            document.getElementById("department").innerHTML = localStorage.getItem("department");
+            document.getElementById("brand").innerHTML = localStorage.getItem("brand");
+            document.getElementById("barcode").innerHTML = localStorage.getItem("barcode");
+          }
+          if (localStorage.getItem("ot") === "MRP ONLY") {
+            var str = '<br><br><br><br><br>\
+  <p><span id="department"class="d3"> </span></p>\
+  <p><span id="brand"class="d3"></span></p>\
+  <br>\
+  <p>\
+    <br><span class="c"><sup> ₹</sup></span>\
+  <span id="mrp" class="a3"></span>\
+  </p>\
+    <br><br><br><br>'
+  
+            document.getElementById("g1n").innerHTML = str;
+
+            var str2 = '<p><span id="barcode" class="f"></span></p>'
+
+
+            document.getElementById("g1").innerHTML = str2;
+
+
+
+            document.getElementById("mrp").innerHTML = localStorage.getItem("mrp");
+           // document.getElementById("nmrp").innerHTML = localStorage.getItem("nmrp");
+            document.getElementById("department").innerHTML = localStorage.getItem("department");
+            document.getElementById("brand").innerHTML = localStorage.getItem("brand");
+            document.getElementById("barcode").innerHTML = localStorage.getItem("barcode");
+          }
+          if (localStorage.getItem("ot") === "% OFF-SINGLE CASE") {
+            var str = '<br><br><br><br>\
+  <p><span id="department"class="d3"> </span></p>\
+  <p><span id="brand"class="d3"></span></p>\
+  <p>\
+  <br><br><span id="od" class="a3"></span>\
+  <span class="a3">&nbsp;OFF </span>\
+  </p>\
+  <p>\
+  <br><span class="b3">MRP: </span>\
+    <span class="e3"><sup> ₹</sup></span>\
+  <span id="mrp" class="b3"></span>\
+  </p><br><br>'
+            document.getElementById("g1n").innerHTML = str;
+
+            var str2 = '<p><span id="barcode" class="f"></span></p>'
+
+
+            document.getElementById("g1").innerHTML = str2;
+
+
+
+            document.getElementById("mrp").innerHTML = localStorage.getItem("mrp");
+            document.getElementById("od").innerHTML = localStorage.getItem("od");
+            document.getElementById("department").innerHTML = localStorage.getItem("department");
+            document.getElementById("brand").innerHTML = localStorage.getItem("brand");
+            document.getElementById("barcode").innerHTML = localStorage.getItem("barcode");
+          }// %off single case
+          if (localStorage.getItem("ot") === "FLAT PRICE") {
+            var str = '<br><br><br><br>\
+  <p><span id="department"class="d3"> </span></p>\
+  <p><span id="brand"class="d3"></span></p>\
+  <br>\
+  <p>\
+    <br><span class="c3"><sup> ₹</sup></span>\
+  <span id="od" class="a3"></span>\
+  </p>\
+    <br>\
+  <p>\
+  <span class="b3">MRP: </span>\
+    <span class="e3"><sup> ₹</sup></span>\
+    <span id="mrp" class="strikethrough"></span>\
+  </p><br><br>'
+            document.getElementById("g1n").innerHTML = str;
+
+            var str2 = '<p><span id="barcode" class="f"></span></p>'
+
+
+            document.getElementById("g1").innerHTML = str2;
+
+
+
+            document.getElementById("mrp").innerHTML = localStorage.getItem("mrp");
+            document.getElementById("od").innerHTML = localStorage.getItem("od");
+            document.getElementById("department").innerHTML = localStorage.getItem("department");
+            document.getElementById("brand").innerHTML = localStorage.getItem("brand");
+            document.getElementById("barcode").innerHTML = localStorage.getItem("barcode");
+          }//flat price
+        }//non app
+    }//size
+  else {
+      if (localStorage.getItem("ot") === "DEAL(B1G1)") {
+        var str = '<br><br><br>\
+  <p><span id="department"class="d3"> </span></p>\
+  <p><span id="brand"class="d3"></span></p>\
+  <br>\
+  <p>\
+  <span class="a3">BUY&nbsp;</span>\
+  <span id="od1" class="a3"></span>\
+  <span class="a3">&nbsp;GET&nbsp;</span>\
+  <span id="od2" class="a3"></span>\
+  </p>\
+    <br>\
+  <p>\
+  <span class="b3">MRP: </span>\
+    <span class="e3"><sup> ₹</sup></span>\
+  <span id="mrp" class="b3"></span>\
+  </p><br>'
+  document.getElementById("g3").innerHTML = str;
+
+var str2 = '<p><span id="barcode" class="f"></span></p>'
+
+
+document.getElementById("g4").innerHTML = str2;
+
+
+        var data = localStorage.getItem("od").split(";");
+        document.getElementById("od1").innerHTML = data[0];
+        document.getElementById("od2").innerHTML = data[1];
+        document.getElementById("mrp").innerHTML = localStorage.getItem("mrp");
+        document.getElementById("department").innerHTML = localStorage.getItem("department");
+        document.getElementById("brand").innerHTML = localStorage.getItem("brand");
+        document.getElementById("barcode").innerHTML = localStorage.getItem("barcode");
+
+      }
+      if (localStorage.getItem("ot") === "NEW MRP") {
+        var str = '<br><br><br>\
+  <p><span id="department"class="d3"> </span></p>\
+  <p><span id="brand"class="d3"></span></p>\
+  <br>\
+  <p>\
+  <span class="c"><sup> ₹</sup></span>\
+  <span id="nmrp" class="a3"></span>\
+  </p>\
+    <br>\
+  <p>\
+  <span class="b3">MRP: </span>\
+    <span class="e3"><sup> ₹</sup></span>\
+  <span id="mrp" class="strikethrough">&nbsp; </span>\
+  <br></p><br>'
+  document.getElementById("g3").innerHTML = str;
+
+var str2 = '<p><span id="barcode" class="f"></span></p>'
+
+
+document.getElementById("g4").innerHTML = str2;
+
+
+
+        document.getElementById("mrp").innerHTML = localStorage.getItem("mrp");
+        document.getElementById("nmrp").innerHTML = localStorage.getItem("nmrp");
+        document.getElementById("department").innerHTML = localStorage.getItem("department");
+        document.getElementById("brand").innerHTML = localStorage.getItem("brand");
+        document.getElementById("barcode").innerHTML = localStorage.getItem("barcode");
+      }
+      if (localStorage.getItem("ot") === "MRP ONLY") {
+            var str = '<br><br><br>\
+  <p><span id="department"class="d3"> </span></p>\
+  <p><span id="brand"class="d3"></span></p>\
+  <br>\
+  <p>\
+    <br><span class="c"><sup> ₹</sup></span>\
+  <span id="mrp" class="a3"></span>\
+  </p><br>'
+  
+            document.getElementById("g3").innerHTML = str;
+
+            var str2 = '<p><span id="barcode" class="f"></span></p>'
+
+
+            document.getElementById("g4").innerHTML = str2;
+
+
+
+            document.getElementById("mrp").innerHTML = localStorage.getItem("mrp");
+           // document.getElementById("nmrp").innerHTML = localStorage.getItem("nmrp");
+            document.getElementById("department").innerHTML = localStorage.getItem("department");
+            document.getElementById("brand").innerHTML = localStorage.getItem("brand");
+            document.getElementById("barcode").innerHTML = localStorage.getItem("barcode");
+          }
+      if (localStorage.getItem("ot") === "% OFF-SINGLE CASE") {
+        var str = '<br><br><br>\
+  <p><span id="department"class="d3"> </span></p>\
+  <p><span id="brand"class="d3"></span></p>\
+  <p>\
+  <br><span id="od" class="a3"></span>\
+  <span class="a3">&nbsp;OFF </span>\
+  </p>\
+  <p>\
+  <br><span class="b3">MRP: </span>\
+    <span class="e3"><sup> ₹</sup></span>\
+  <span id="mrp" class="b3"></span>\
+  </p><br>'
+  document.getElementById("g3").innerHTML = str;
+
+var str2 = '<p><span id="barcode" class="f"></span></p>'
+
+
+document.getElementById("g4").innerHTML = str2;
+
+
+        document.getElementById("mrp").innerHTML = localStorage.getItem("mrp");
+        document.getElementById("od").innerHTML = localStorage.getItem("od");
+        document.getElementById("department").innerHTML = localStorage.getItem("department");
+        document.getElementById("brand").innerHTML = localStorage.getItem("brand");
+        document.getElementById("barcode").innerHTML = localStorage.getItem("barcode");
+      }// %off single case
+      if (localStorage.getItem("ot") === "FLAT PRICE") {
+        var str = '<br><br><br>\
+  <p><span id="department"class="d3"> </span></p>\
+  <p><span id="brand"class="d3"></span></p>\
+  <p>\
+    <br><span class="c3"><sup> ₹</sup></span>\
+  <span id="od" class="a3"></span>\
+  </p>\
+    <br>\
+  <p>\
+  <span class="b3">MRP: </span>\
+    <span class="e3"><sup> ₹</sup></span>\
+  <span id="mrp" class="strikethrough"></span>\
+  </p><br>'
+        document.getElementById("g3").innerHTML = str;
+
+        var str2 = '<p><span id="barcode" class="f"></span></p>'
+
+
+        document.getElementById("g4").innerHTML = str2;
+
+
+
+        document.getElementById("mrp").innerHTML = localStorage.getItem("mrp");
+        document.getElementById("od").innerHTML = localStorage.getItem("od");
+        document.getElementById("department").innerHTML = localStorage.getItem("department");
+        document.getElementById("brand").innerHTML = localStorage.getItem("brand");
+        document.getElementById("barcode").innerHTML = localStorage.getItem("barcode");
+      }
+    }
+  }
+  </script>
+
+
+
+  <page size="A4" layout="landscape">
+    <div id="g" class="div1"></div>
+    <div id="g1n" class="div1n"></div>
+    <div id="g1" class="div2"></div>
+    <div id="g2" class="div2n"></div>
+    <div id="g3" class="diva6"></div>
+    <div id="g4" class="diva62"></div>
+  </page>
+</body>
+
+</html>
+
