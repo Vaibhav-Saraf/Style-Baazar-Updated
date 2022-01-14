@@ -136,7 +136,7 @@
 <script>
     function divisionFinder(){
     index=0;
-    axios.get('http://143.244.142.130/division').then(function (response) {
+    axios.get('http://143.244.142.130:1337/division').then(function (response) {
     var data = response.data;
     var select = document.getElementById("dd1");
     console.log("imhere")
@@ -161,7 +161,7 @@
     var q=document.getElementById('dd1');
     var op=q.options[q.selectedIndex].text;
     index=0;
-    axios.post('http://143.244.142.130/section', {
+    axios.post('http://143.244.142.130:1337/section', {
     division: op,
   }).then(function (response) {
     var data = response.data;
@@ -193,7 +193,7 @@
     var q2=document.getElementById('dd1');
     var op2=q2.options[q2.selectedIndex].text;
     index=0;
-    axios.post('http://143.244.142.130/department', {
+    axios.post('http://143.244.142.130:1337/department', {
         division: op2,
         section: op1,
         category: op,
@@ -225,7 +225,7 @@
     var op1=q1.options[q1.selectedIndex].text;
     var op2=q2.options[q2.selectedIndex].text;
     index=0;
-    axios.post('http://143.244.142.130/signage', {
+    axios.post('http://143.244.142.130:1337/signage', {
     section: op1,
     department: op2,
   }).then(function (response) {
@@ -261,7 +261,7 @@
     var op3=q3.options[q3.selectedIndex].text;
     var op4=q4.options[q4.selectedIndex].text;
     console.log("here2");
-    await axios.post('http://143.244.142.130/image', {
+    await axios.post('http://143.244.142.130:1337/image', {
     section: op1,
     department: op2,
     signage:op3,
@@ -293,7 +293,7 @@
     var q3=document.getElementById('dd1');
     var op3=q3.options[q3.selectedIndex].text;
     console.log("here2");
-    await axios.post('http://143.244.142.130/getbrand', {
+    await axios.post('http://143.244.142.130:1337/getbrand', {
     division:op3,
     department: op2,
     section:op1,
@@ -324,7 +324,7 @@
 
 <script>
     async function offertypeFinder() {
-    await axios.post('http://143.244.142.130/offertype', {
+    await axios.post('http://143.244.142.130:1337/offertype', {
     department: "",
   }).then(function (response) {
     var data = response.data;
@@ -359,7 +359,7 @@
     var op2=q2.options[q2.selectedIndex].text;
     var q4=document.getElementById('dd4');
     var op4=q4.options[q4.selectedIndex].text;
-    await axios.post('http://143.244.142.130/barcode', {
+    await axios.post('http://143.244.142.130:1337/barcode', {
     department: op3,
     division:op1,
     section:op2,
@@ -390,7 +390,7 @@
     var q=document.getElementById('dd2');
     var op=q.options[q.selectedIndex].text;
     index=0;
-    axios.post('http://143.244.142.130/category', {
+    axios.post('http://143.244.142.130:1337/category', {
     section: op,
   }).then(function (response) {
     var data = response.data;
@@ -419,7 +419,7 @@
     var q=document.getElementById('dd5');
     var op=q.options[q.selectedIndex].text;
     index=0;
-    axios.post('http://143.244.142.130/offerdetails', {
+    axios.post('http://143.244.142.130:1337/offerdetails', {
     offertype: op,
   }).then(function (response) {
     var data = response.data;
@@ -567,7 +567,7 @@
     localStorage.setItem("nmrp",op9)
     localStorage.setItem("barcode",op10)
     localStorage.setItem("size",op11)
-    window.open('http://143.244.142.130/first', "_blank");
+    window.open('http://143.244.142.130:1337/first', "_blank");
     // location.reload();
     }
 </script>
