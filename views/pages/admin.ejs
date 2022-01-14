@@ -66,7 +66,7 @@
         </style>
     </head>
     <script>
-        function downloadProductsData(){
+        async function downloadProductsData(){
         axios.get('http://143.244.142.130:1337/database').then(function (response) {
         var data = response.data;
         console.log("downloadedJson")
@@ -79,7 +79,7 @@
         };
     </script>
     <script>
-        function downloadOfferData(){
+        async function downloadOfferData(){
         axios.get('http://143.244.142.130:1337/getOffer').then(function (response) {
         var data = response.data;
         console.log("downloadedJson")
@@ -125,10 +125,10 @@
                 
                 </form>
 
-             <form>
+             <!-- <form>
                 <button class="print-preview-button2" onClick="downloadOfferData()"style="margin-left: 105px;">Get Offer Data</button><br>
                 <button class="print-preview-button2" onClick="downloadProductsData()"style="margin-left: 105px;">Get Product Data</button>
-             </form>   
+             </form>    -->
                 
         </div>
 </html>

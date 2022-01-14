@@ -130,10 +130,40 @@
     margin-left: 30px;
     font-size: 20px;
 }
+.print-preview-button2 {
+	height: 35px; 
+	width: 250px;
+	font-size: 20px;
+}
 
 </style>
 </head>
-
+<script>
+    async function downloadProductsData(){
+    await axios.get('http://143.244.142.130:1337/database').then(function (response) {
+    var data = response.data;
+    console.log("downloadedJson")
+        const workSheet = XLSX.utils.json_to_sheet(data);
+        filename='ProductsDB.xlsx';
+        var wb = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, workSheet, "People");
+        XLSX.writeFile(wb,filename);
+    })
+    };
+</script>
+<script>
+    async function downloadOfferData(){
+    await axios.get('http://143.244.142.130:1337/getOffer').then(function (response) {
+    var data = response.data;
+    console.log("downloadedJson")
+        const workSheet = XLSX.utils.json_to_sheet(data);
+        filename='OfferDB.xlsx';
+        var wb = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, workSheet, "People");
+        XLSX.writeFile(wb,filename);
+    })
+    };
+</script>
 <script>
     function divisionFinder(){
     index=0;
@@ -572,6 +602,12 @@
     // location.reload();
     }
 </script>
+<script>
+    function update(){
+        categoryFinder();
+        departmentFinder();
+    }
+</script>
 
 
 
@@ -590,7 +626,7 @@
                     <option hidden disabled selected value> -- Select an option -- </option>
                 </select><br>
                 <span class="dropdown-label" style="margin-left: 10px;">Section:</span>
-                <select name="Section" id ="dd2" class="dropdown" style="margin-left: 97px;" onChange="categoryFinder()">
+                <select name="Section" id ="dd2" class="dropdown" style="margin-left: 97px;" onChange="update()">
                     <option hidden disabled selected value> -- Select an option -- </option>
                 </select><br>
                 <span class="dropdown-label" style="margin-left: 10px;">Category:</span>
@@ -636,6 +672,11 @@
             </form>
         </div>
         <button class="print-preview-button" onClick="imagFinder()">Print Preview</button>
+        <!-- <form>
+            <button class="print-preview-button2" onClick="downloadOfferData()"style="margin-left: 105px;">Get Offer Data</button><br>
+            <button class="print-preview-button2" onClick="downloadProductsData()"style="margin-left: 105px;">Get Product Data</button>
+         </form>    -->
     </div>
+   
 </body>
 </html>
