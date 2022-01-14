@@ -6,6 +6,7 @@ module.exports = {
       } catch (err) {
         res.serverError(err.toString());
       }
+      return res.view('pages/admin');
     },
   
     offerdb: async function (req, res) {
@@ -15,6 +16,7 @@ module.exports = {
       } catch (err) {
         res.serverError(err.toString());
       }
+      return res.view('pages/admin');
     },
     create: function (req, res) {
       const division = req.body.division;

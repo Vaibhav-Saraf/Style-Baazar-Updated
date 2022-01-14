@@ -30,6 +30,7 @@
    'POST /department': 'PostsController.department',
    // 'POST /signage': 'PostsController.signage',
    'GET /getOffer':'PostsController.offerdb',
+   'GET /getProducts' : 'PostsCoontroller.posts',
    'POST /addData': 'PostsController.create',
    // 'DELETE /deleteData': 'PostsController.delete',
    //'POST /image': 'PostsController.imageEdit',

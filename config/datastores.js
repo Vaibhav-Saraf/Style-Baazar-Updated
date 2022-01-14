@@ -49,7 +49,7 @@ module.exports.datastores = {
     *                                                                          *
     ***************************************************************************/
     adapter: 'sails-mongo',
-    url: 'mongodb+srv://admin:admin@cluster0.rfx7x.mongodb.net/stylebaazar',
+    url: 'mongodb+srv://admin:admin@cluster0.52vzx.mongodb.net/stylebaazar',
 
   },
 

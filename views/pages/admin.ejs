@@ -2,11 +2,12 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Store</title>
+        <title>Admin</title>
           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" crossorigin="anonymous"></script>
           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://oss.sheetjs.com/sheetjs/xlsx.full.min.js"></script>
         <style type="text/css">.left-div {
             display: inline-block;
             height: 945px;
@@ -30,6 +31,11 @@
         .print-preview-button {
 	height: 35px; 
 	width: 120px;
+	font-size: 20px;
+}
+.print-preview-button2 {
+	height: 35px; 
+	width: 250px;
 	font-size: 20px;
 }
         .big-heading {
@@ -59,6 +65,32 @@
 }
         </style>
     </head>
+    <script>
+        function downloadProductsData(){
+        axios.get('http://143.244.142.130:1337/database').then(function (response) {
+        var data = response.data;
+        console.log("downloadedJson")
+            const workSheet = XLSX.utils.json_to_sheet(data);
+            filename='ProductsDB.xlsx';
+            var wb = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(wb, workSheet, "People");
+            XLSX.writeFile(wb,filename);
+        })
+        };
+    </script>
+    <script>
+        function downloadOfferData(){
+        axios.get('http://143.244.142.130:1337/getOffer').then(function (response) {
+        var data = response.data;
+        console.log("downloadedJson")
+            const workSheet = XLSX.utils.json_to_sheet(data);
+            filename='OfferDB.xlsx';
+            var wb = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(wb, workSheet, "People");
+            XLSX.writeFile(wb,filename);
+        })
+        };
+    </script>
 
     <body style="margin: 50; background-color: #D3D3D3;">
         <div class="right-div">
@@ -89,7 +121,14 @@
                 <input class="dropdown"name='ot' type="text" placeholder="Enter Offer Type"style="margin-left: 100px;"><br>
                 <input class="dropdown"name='od' type="text" placeholder="Enter Offer Details"style="margin-left: 100px;"><br>
     
-                <button class="print-preview-button" type="submit"style="margin-left: 105px;">Submit</button><br>
+                <button class="print-preview-button" type="submit"style="margin-left: 105px;">Submit</button><br><br><br>
+                
                 </form>
+
+             <form>
+                <button class="print-preview-button2" onClick="downloadOfferData()"style="margin-left: 105px;">Get Offer Data</button><br>
+                <button class="print-preview-button2" onClick="downloadProductsData()"style="margin-left: 105px;">Get Product Data</button>
+             </form>   
+                
         </div>
 </html>

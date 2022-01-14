@@ -68,6 +68,22 @@
       text-align: center;
       line-height: 60px;
     }
+    .div1on {
+      /* page-break-inside: avoid; */
+      width: 1122px;
+      margin: auto;
+      text-align: center;
+	    margin-left:150px;
+      line-height: 30px;
+    }
+    .div2on {
+      /* page-break-inside: avoid; */
+      width: 1122px;
+      margin: auto;
+      text-align: center;
+	    margin-left:90px;
+      line-height: 30px;
+    }
 
     .div1n {
       /* page-break-inside: avoid; */
@@ -232,7 +248,38 @@
       font-family: Hindi;
       font-size: 85px;
     }
-
+    .on1 {
+      font-family: GBold;
+      font-size: 160px;
+    }
+    .on2 {
+      font-family: GBlack;
+      font-size: 50px;
+    }
+    .on3 {
+      font-family: Hindi;
+      font-size: 110px;
+    }
+    .on4 {
+      font-family: GBold;
+      font-size: 60px;
+    }
+	 .on5 {
+      font-family: GBlack;
+      font-size: 100px;
+    }
+    .on6 {
+      font-family: GBlack;
+      font-size: 90px;
+    }
+	  .on7 {
+      font-family: GBold;
+      font-size: 150px;
+    }
+	  .on8 {
+      font-family: Hndi;
+      font-size: 40px;
+    }
     .strikethrough {
       position: relative;
       font-family: GBold;
@@ -307,6 +354,42 @@
               document.getElementById("department").innerHTML = localStorage.getItem("department");
               document.getElementById("mrp").innerHTML = localStorage.getItem("mrp");
             }// % OFF
+			else if (localStorage.getItem("ot") === "ONWARDS") {
+              var str = '<br><br><br>\
+	<p>\
+    <span id="department"class="on5"></span></p>\
+	<p><br>\
+<span class="on6">MRP&nbsp;</span>\
+ <span class="on3"><sup>&nbsp;₹</sup></span>\
+ <span id ="mrp" class="on7"></span><br>\
+  </p>';
+
+              document.getElementById("g").innerHTML = str;
+              document.getElementById("department").innerHTML = localStorage.getItem("department");
+              document.getElementById("mrp").innerHTML = localStorage.getItem("mrp");
+			   var str2 = '<p><span class="on2"></span></p>'
+
+
+            document.getElementById("g5").innerHTML = str2;
+            }// ONWARDS
+			
+			else if (localStorage.getItem("ot") === "NEW MRP") {
+              var str = '<br><br><br>\
+	<p>\
+    <span id="department"class="on5"></span></p>\
+	<p><br>\
+<span class="on3"><sup>&nbsp;₹</sup></span>\
+ <span id ="nmrp" class="on7"></span><br></p>\
+  <p>\
+  <span class="on4">MRP:&nbsp;</span>\
+  <span class="on8"><sup>&nbsp;₹</sup></span>\
+ <span id ="mrp" class="strikethrough"></span><br></p>';
+
+              document.getElementById("g").innerHTML = str;
+              document.getElementById("nmrp").innerHTML = localStorage.getItem("nmrp");
+              document.getElementById("department").innerHTML = localStorage.getItem("department");
+              document.getElementById("mrp").innerHTML = localStorage.getItem("mrp");
+            }// NEW MRP
             else if (localStorage.getItem("ot") === "POWER PRICING-FLAT PRICE(2 ITEMS)") {
               console.log("in fn 2")
               var str = '<br><br>\
@@ -946,6 +1029,30 @@
             document.getElementById("brand").innerHTML = localStorage.getItem("brand");
             document.getElementById("barcode").innerHTML = localStorage.getItem("barcode");
           }
+		   if (localStorage.getItem("ot") === "ONWARDS") {
+            var str = '<br>\
+	<p>\
+    <span id="department"class="on4"></span></p><p>\
+  	<span id ="brand" class="on4"></span></p>\
+	<p><br>\
+ <span class="on3"><sup> ₹</sup></span>\
+ <span id ="mrp" class="on1"></span><br>\
+  </p>';
+  
+            document.getElementById("g1n").innerHTML = str;
+
+            var str2 = '<p><span  class="on2"></span></p>';
+
+
+            document.getElementById("g6").innerHTML = str2;
+
+
+
+            document.getElementById("mrp").innerHTML = localStorage.getItem("mrp");
+            document.getElementById("department").innerHTML = localStorage.getItem("department");
+            document.getElementById("brand").innerHTML = localStorage.getItem("brand");
+           
+          }
           if (localStorage.getItem("ot") === "MRP ONLY") {
             var str = '<br><br><br><br><br>\
   <p><span id="department"class="d3"> </span></p>\
@@ -1191,6 +1298,8 @@ document.getElementById("g4").innerHTML = str2;
     <div id="g2" class="div2n"></div>
     <div id="g3" class="diva6"></div>
     <div id="g4" class="diva62"></div>
+	<div id="g5" class="div1on"></div>
+	<div id="g6" class="div2on"></div>
   </page>
 </body>
 
