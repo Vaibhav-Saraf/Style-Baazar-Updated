@@ -153,12 +153,12 @@
 
     .a3 {
       font-family: GBold;
-      font-size: 135px;
+      font-size: 140px;
     }
 
     .b3 {
       font-family: GBold;
-      font-size: 58px;
+      font-size: 63px;
     }
 
     .c3 {
@@ -168,12 +168,12 @@
 
     .d3 {
       font-family: GBold;
-      font-size: 56px;
+      font-size: 61px;
     }
 
     .e3 {
       font-family: Hindi;
-      font-size: 45px;
+      font-size: 50px;
     }
 
     .f {
@@ -337,7 +337,7 @@
       /* page-break-inside: avoid; */
       width: 1122px;
       margin: auto;
-      margin-left:90px;
+      margin-left:200px;
       text-align: center;
       line-height: 30px;
       transform: scale(0.5);
@@ -1328,10 +1328,10 @@ document.getElementById("g4").innerHTML = str2;
       if (localStorage.getItem("ot") === "RANGE ONLY") {
               var str = '<br><br><br><br><br>\
   <p>\
-    <span id="department"class="a"></span></p><p>\
-	<span id="brand"class="a"></span>\
+    <span id="department"class="z2"></span></p><p>\
+	<span id="brand"class="z2"></span>\
   </p>\
-    <br><p>\
+    <br><br><p>\
     <span class="v">MRP&nbsp;&nbsp;</span>\
     <span class="z1"><sup> ₹</sup></span>\
       <span id="range1" class="a1"></span>\
@@ -1345,18 +1345,19 @@ document.getElementById("g4").innerHTML = str2;
               document.getElementById("department").innerHTML = localStorage.getItem("department");
 			  document.getElementById("brand").innerHTML = localStorage.getItem("brand");
             }//RANGE ONLY
-			if (localStorage.getItem("ot") === "ONWARDS") {
-            var str = '<br>\
+            if (localStorage.getItem("ot") === "ONWARDS") {
+            var str = '<br><br><br><br>\
 	<p>\
     <span id="department"class="on4"></span></p><p>\
   	<span id ="brand" class="on4"></span></p>\
-	<p><br>\
+	<p><br><br><br>\
  <span class="on3"><sup> ₹</sup></span>\
- <span id ="mrp" class="on1"></span><br>\
+ <span id ="mrp" class="on1"></span>\
   </p>';
-            document.getElementById("g1n").innerHTML = str;
+  
+            document.getElementById("g3").innerHTML = str;
 
-            var str2 = '<p><span  class="on2"></span></p>';
+            var str2 = '<p><span class="on2">ONWARDS</span></p>';
 
 
             document.getElementById("g7").innerHTML = str2;
