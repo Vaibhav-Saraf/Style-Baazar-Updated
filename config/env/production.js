@@ -253,8 +253,8 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
     onlyAllowOrigins: [
-      'https://example.com',
-      'https://staging.example.com',
+      'http://143.244.142.130:1337/',
+      'http://143.244.142.130:1337/admin',
     ],
 
 
