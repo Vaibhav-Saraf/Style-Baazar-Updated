@@ -137,6 +137,11 @@
       font-size: 125px;
     }
 
+    .a6 {
+      font-family: GBlack;
+      font-size: 135px;
+    }
+
     .b1 {
       font-family: GUltra;
       font-size: 115px;
@@ -179,6 +184,21 @@
     .a4{
       font-family: GBold;
       font-size: 200px;
+    }
+
+    .a4n{
+      font-family: GBold;
+      font-size: 400px;
+    }
+
+    .a5{
+      font-family: GBlack;
+      font-size: 150px;
+    }
+
+    .v2{
+      font-family: GBold;
+      font-size: 70px;
     }
 
     .f {
@@ -232,6 +252,12 @@
       font-family: GBlack;
       font-size: 90px;
     }
+
+    .v3{
+      font-family: GBold;
+      font-size: 90px;
+    }
+
     .v1{
       font-family: GBlack;
       font-size: 70px;
@@ -284,6 +310,11 @@
       font-family: Hndi;
       font-size: 40px;
     }
+    .on9 {
+      font-family: GBold;
+      font-size: 200px;
+    }
+
     .strikethrough {
       position: relative;
       font-family: GBold;
@@ -330,9 +361,22 @@
       transform-origin: 0 0;
       margin-top: -370px;
     }
+
+    .diva62n {
+      /* page-break-inside: avoid; */
+      width: 1122px;
+      margin: auto;
+      margin-left:150px;
+      text-align: right;
+      line-height: 10px;
+      transform: scale(0.5);
+      transform-origin: 0 0;
+      margin-top: -500px;
+    }
+
     .z1{
       font-family: Hindi;
-      font-size: 55px;
+      font-size: 75px;
     }
     .z2{
       font-family: GBold;
@@ -342,12 +386,12 @@
       /* page-break-inside: avoid; */
       width: 1122px;
       margin: auto;
-      /* margin-left:200px; */
+      margin-left:200px;
       text-align: center;
       line-height: 30px;
       transform: scale(0.5);
       transform-origin: 0 0;
-      margin-top: -370px;
+      margin-top: -400px;
     }
 
   </style>
@@ -1061,12 +1105,12 @@
 	<span id="brand"class="z2"></span>\
   </p>\
     <br><br><p>\
-    <span class="v">MRP&nbsp;&nbsp;</span>\
+    <span class="v3">MRP&nbsp;&nbsp;</span>\
     <span class="z1"><sup> ₹</sup></span>\
-      <span id="range1" class="a1"></span>\
-  <span class="a1">&nbsp;-  </span>\
+      <span id="range1" class="a6"></span>\
+  <span class="a6">&nbsp;-  </span>\
     <span class="z1"><sup> ₹</sup></span>\
-  <span id="range2"class="a1"></span>\
+  <span id="range2"class="a6"></span>\
   </p>'
               document.getElementById("g1n").innerHTML = str;
               document.getElementById("range1").innerHTML = localStorage.getItem("range1");
@@ -1221,26 +1265,26 @@ document.getElementById("g4").innerHTML = str2;
 
       }
       if (localStorage.getItem("ot") === "NEW MRP") {
-        var str = '<br><br><br>\
+        var str = '<br><br><br><br>\
   <p><span id="department"class="d3"> </span></p>\
   <p><span id="brand"class="d3"></span></p>\
   <br>\
   <p>\
   <span class="c"><sup> ₹</sup></span>\
-  <span id="nmrp" class="a4"></span>\
+  <span id="nmrp" class="a4n"></span>\
   </p>\
     <br>\
   <p>\
   <span class="b3">MRP: </span>\
     <span class="e3"><sup> ₹</sup></span>\
   <span id="mrp" class="strikethrough">&nbsp; </span>\
-  <br></p><br>'
+  </p>'
   document.getElementById("g3").innerHTML = str;
 
 var str2 = '<p><span id="barcode" class="f"></span></p>'
 
 
-document.getElementById("g4").innerHTML = str2;
+document.getElementById("g8").innerHTML = str2;
 
 
 
@@ -1338,12 +1382,12 @@ document.getElementById("g4").innerHTML = str2;
 	<span id="brand"class="z2"></span>\
   </p>\
     <br><br><p>\
-    <span class="v">MRP&nbsp;&nbsp;</span>\
+    <span class="v2">MRP&nbsp;&nbsp;</span>\
     <span class="z1"><sup> ₹</sup></span>\
-      <span id="range1" class="a1"></span>\
-  <span class="a1">&nbsp;-  </span>\
+      <span id="range1" class="a5"></span>\
+  <span class="a5">&nbsp;-  </span>\
     <span class="z1"><sup> ₹</sup></span>\
-  <span id="range2"class="a1"></span>\
+  <span id="range2"class="a5"></span>\
   </p>'
               document.getElementById("g3").innerHTML = str;
               document.getElementById("range1").innerHTML = localStorage.getItem("range1");
@@ -1352,14 +1396,13 @@ document.getElementById("g4").innerHTML = str2;
 			  document.getElementById("brand").innerHTML = localStorage.getItem("brand");
             }//RANGE ONLY
             if (localStorage.getItem("ot") === "ONWARDS") {
-            var str = '<br><br><br><br>\
+            var str = '<br><br><br><br><br>\
 	<p>\
     <span id="department"class="on4"></span></p><p>\
   	<span id ="brand" class="on4"></span></p>\
-	<p><br><br><br>\
-    <span class="v1">MRP&nbsp;&nbsp;</span>\
+	<p><br>\
  <span class="on3"><sup> ₹</sup></span>\
- <span id ="mrp" class="on1"></span>\
+ <span id ="mrp" class="on9"></span>\
   </p>';
   
             document.getElementById("g3").innerHTML = str;
@@ -1392,6 +1435,7 @@ document.getElementById("g4").innerHTML = str2;
 	<div id="g5" class="div1on"></div>
 	<div id="g6" class="div2on"></div>
   <div id="g7" class="diva62on"></div>
+  <div id="g8" class="diva62n"></div>
   </page>
 </body>
 
